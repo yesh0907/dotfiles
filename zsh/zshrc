@@ -1,0 +1,37 @@
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_DISABLE_COMPFIX=True
+
+ZSH_THEME=""
+
+plugins=(
+  git
+  brew
+  common-aliases
+  node
+  npm
+  rand-quote
+  sudo
+  yarn
+  z
+  colored-man-pages
+  colorize
+  cp
+  zsh-syntax-highlighting
+)
+
+# install: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+source $ZSH/oh-my-zsh.sh
+
+# remove rm -i alias for rm
+unalias rm
+
+# Pure Prompt (brew install pure)
+autoload -U promptinit; promptinit
+prompt pure
+
+# Add env.sh
+source ~/Documents/config/env.sh
+
+# VS Code command
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
